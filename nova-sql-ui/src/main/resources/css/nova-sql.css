@@ -1,0 +1,299 @@
+/* Nova SQL JavaFX Application Styles */
+
+/* Root styling */
+.root {
+    -fx-background-color: #f4f4f4;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 12px;
+}
+
+/* Panel headers */
+.panel-header {
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Menu bar styling */
+.menu-bar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 0 0 1 0;
+}
+
+.menu-bar .menu-button {
+    -fx-background-color: transparent;
+    -fx-padding: 8px 12px;
+}
+
+.menu-bar .menu-button:hover {
+    -fx-background-color: #e8f4fd;
+}
+
+/* Toolbar styling */
+.tool-bar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 5px;
+}
+
+.tool-bar .button {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-padding: 6px 12px;
+    -fx-font-size: 11px;
+}
+
+.tool-bar .button:hover {
+    -fx-background-color: #e9ecef;
+    -fx-border-color: #adb5bd;
+}
+
+.tool-bar .button:pressed {
+    -fx-background-color: #dee2e6;
+}
+
+/* Split pane styling */
+.split-pane {
+    -fx-background-color: #f4f4f4;
+}
+
+.split-pane-divider {
+    -fx-background-color: #d3d3d3;
+    -fx-padding: 0 1 0 1;
+}
+
+/* Tree view styling */
+.tree-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+}
+
+.tree-view .tree-cell {
+    -fx-padding: 4px 8px;
+}
+
+.tree-view .tree-cell:selected {
+    -fx-background-color: #007acc;
+    -fx-text-fill: white;
+}
+
+.tree-view .tree-cell:hover {
+    -fx-background-color: #e8f4fd;
+}
+
+/* Table view styling */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 0 1 1 0;
+    -fx-padding: 8px;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-border-color: #e9ecef;
+    -fx-border-width: 0 1 1 0;
+    -fx-padding: 6px 8px;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #007acc;
+    -fx-text-fill: white;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #e8f4fd;
+}
+
+/* Text area styling (for messages) */
+.text-area {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-font-size: 11px;
+}
+
+.text-area .content {
+    -fx-background-color: #ffffff;
+}
+
+/* Tab pane styling */
+.tab-pane {
+    -fx-background-color: #f4f4f4;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #f4f4f4;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #e9ecef;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 1 1 0 1;
+    -fx-border-radius: 3 3 0 0;
+    -fx-background-radius: 3 3 0 0;
+    -fx-padding: 8px 16px;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #ffffff;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-font-size: 11px;
+}
+
+/* Status bar styling */
+.status-bar {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 1 0 0 0;
+}
+
+.status-bar .label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #495057;
+}
+
+/* Code area styling (will be applied to RichTextFX component) */
+.code-area {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+}
+
+.code-area .paragraph-box {
+    -fx-background-color: #ffffff;
+}
+
+.code-area .paragraph-text {
+    -fx-font-family: "Consolas", "Monaco", "Courier New", monospace;
+    -fx-font-size: 14px;
+}
+
+/* Line numbers */
+.lineno {
+    -fx-background-color: #f8f9fa;
+    -fx-text-fill: #6c757d;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-font-size: 12px;
+    -fx-padding: 0 8px 0 8px;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* SQL syntax highlighting classes */
+.sql-keyword {
+    -fx-fill: #0000ff;
+    -fx-font-weight: bold;
+}
+
+.sql-string {
+    -fx-fill: #008000;
+}
+
+.sql-comment {
+    -fx-fill: #808080;
+    -fx-font-style: italic;
+}
+
+.sql-number {
+    -fx-fill: #ff6600;
+}
+
+/* Scrollbar styling */
+.scroll-bar {
+    -fx-background-color: #f4f4f4;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #adb5bd;
+    -fx-background-radius: 3px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #868e96;
+}
+
+.scroll-bar .track {
+    -fx-background-color: #f4f4f4;
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: #007acc;
+    -fx-text-fill: white;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-padding: 6px 12px;
+    -fx-font-size: 12px;
+}
+
+.button:hover {
+    -fx-background-color: #106ebb;
+}
+
+.button:pressed {
+    -fx-background-color: #005a9e;
+}
+
+/* Tooltip styling */
+.tooltip {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-padding: 4px 8px;
+    -fx-background-radius: 3px;
+}
+
+/* Alert dialog styling */
+.alert {
+    -fx-background-color: #ffffff;
+}
+
+.alert .header-panel {
+    -fx-background-color: #f8f9fa;
+}
+
+.alert .content-text {
+    -fx-font-size: 12px;
+}
+
+/* Context menu styling */
+.context-menu {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+.context-menu .menu-item {
+    -fx-padding: 6px 12px;
+}
+
+.context-menu .menu-item:hover {
+    -fx-background-color: #e8f4fd;
+}
+
+/* Progress indicator */
+.progress-indicator {
+    -fx-progress-color: #007acc;
+}

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.novasql.ui.controller.MainController">
+   <children>
+      <!-- Menu Bar -->
+      <MenuBar fx:id="menuBar">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleNewQuery" text="New Query" />
+                  <MenuItem mnemonicParsing="false" text="Open..." />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Exit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Database">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Connect..." />
+                  <MenuItem mnemonicParsing="false" text="Disconnect" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleImportCSV" text="Import CSV..." />
+                  <MenuItem mnemonicParsing="false" onAction="#handleExportCSV" text="Export CSV..." />
+                  <MenuItem mnemonicParsing="false" onAction="#handleBackupDatabase" text="Backup Database..." />
+                  <MenuItem mnemonicParsing="false" onAction="#handleRestoreDatabase" text="Restore Database..." />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Query">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleExecuteQuery" text="Execute" />
+                  <MenuItem mnemonicParsing="false" text="Execute Selection" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleClearEditor" text="Clear" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Query History..." />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Charts">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleCreateChart" text="Create Chart..." />
+                  <MenuItem mnemonicParsing="false" onAction="#handleCreateDashboard" text="Create Dashboard..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Chart Templates..." />
+                  <MenuItem mnemonicParsing="false" text="Export All Charts..." />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Tools">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Performance Monitor..." />
+                  <MenuItem mnemonicParsing="false" text="Database Statistics..." />
+                  <MenuItem mnemonicParsing="false" text="Preferences..." />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Documentation" />
+                  <MenuItem mnemonicParsing="false" text="SQL Reference" />
+                  <MenuItem mnemonicParsing="false" text="About Nova SQL" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+
+      <!-- Toolbar -->
+      <ToolBar fx:id="toolBar">
+         <items>
+            <Button mnemonicParsing="false" onAction="#handleNewQuery" text="New" />
+            <Button mnemonicParsing="false" text="Open" />
+            <Button mnemonicParsing="false" text="Save" />
+            <Separator orientation="VERTICAL" />
+            <Button mnemonicParsing="false" onAction="#handleExecuteQuery" text="Execute" />
+            <Button mnemonicParsing="false" text="Stop" />
+            <Button mnemonicParsing="false" onAction="#handleClearEditor" text="Clear" />
+            <Separator orientation="VERTICAL" />
+            <Button mnemonicParsing="false" onAction="#handleImportCSV" text="Import" />
+            <Button mnemonicParsing="false" onAction="#handleExportCSV" text="Export" />
+            <Separator orientation="VERTICAL" />
+            <Button mnemonicParsing="false" onAction="#handleCreateChart" text="Chart" />
+            <Button mnemonicParsing="false" onAction="#handleCreateDashboard" text="Dashboard" />
+         </items>
+      </ToolBar>
+
+      <!-- Main Content Area -->
+      <SplitPane fx:id="mainSplitPane" dividerPositions="0.25" VBox.vgrow="ALWAYS">
+         <items>
+            <!-- Left Panel - Schema Browser -->
+            <SplitPane fx:id="leftSplitPane" dividerPositions="0.7" orientation="VERTICAL">
+               <items>
+                  <!-- Schema Tree -->
+                  <VBox>
+                     <children>
+                        <Label styleClass="panel-header" text="Database Schema">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TreeView fx:id="schemaTree" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TreeView>
+                     </children>
+                  </VBox>
+
+                  <!-- Messages Area -->
+                  <VBox>
+                     <children>
+                        <Label styleClass="panel-header" text="Messages">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextArea fx:id="messagesArea" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TextArea>
+                     </children>
+                  </VBox>
+               </items>
+            </SplitPane>
+
+            <!-- Right Panel - Query Editor and Results -->
+            <SplitPane dividerPositions="0.4" orientation="VERTICAL">
+               <items>
+                  <!-- Query Editor -->
+                  <VBox>
+                     <children>
+                        <!-- Query Tabs -->
+                        <TabPane fx:id="queryTabPane" prefHeight="40.0" tabClosingPolicy="ALL_TABS">
+                           <tabs>
+                              <Tab closable="false" text="Query 1">
+                                 <content>
+                                    <VBox fx:id="queryEditorContainer" VBox.vgrow="ALWAYS">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children>
+                  </VBox>
+
+                  <!-- Results Area -->
+                  <VBox>
+                     <children>
+                        <Label styleClass="panel-header" text="Query Results">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TableView fx:id="resultsTable" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </items>
+            </SplitPane>
+         </items>
+      </SplitPane>
+
+      <!-- Status Bar -->
+      <HBox styleClass="status-bar">
+         <children>
+            <Label fx:id="statusLabel" text="Ready" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="rowCountLabel" text="Rows: 0" />
+            <Separator orientation="VERTICAL" />
+            <Label fx:id="executionTimeLabel" text="Time: 0ms" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
